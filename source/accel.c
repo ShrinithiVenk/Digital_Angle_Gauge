@@ -14,7 +14,7 @@
 int16_t accel_X=0, accel_Y=0, accel_Z=0;
 float tilt_angle=0.0, tilt_value=0.0;
 
-extern uint32_t DATA_READY;
+extern uint32_t DATA_ACCEL_READY;
 
 /* @brief			:	initializes MMA8451 3 axis accelerometer.
 *

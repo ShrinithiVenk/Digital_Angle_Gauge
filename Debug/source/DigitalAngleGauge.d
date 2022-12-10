@@ -21,9 +21,9 @@ source/DigitalAngleGauge.o source/DigitalAngleGauge.d: \
  C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\board/clock_config.h \
  C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\CMSIS/MKL25Z4.h \
  C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\utilities/fsl_debug_console.h \
- ../source/touch.h ../source/led.h ../source/sysclock.h ../source/uart.h \
- ../source/cbfifo.h ../source/i2c.h ../source/systick.h ../source/cmd.h \
- ../source/test_cbfifo.h ../source/test_accel.h ../source/test_led.h
+ ../source/led.h ../source/uart.h ../source/cbfifo.h ../source/i2c.h \
+ ../source/systick.h ../source/cmd.h ../source/test_cbfifo.h \
+ ../source/test_accel.h ../source/test_led.h
 C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\source/accel.h:
 C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\source/test_cbfifo.h:
 C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\board/board.h:
@@ -45,9 +45,7 @@ C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngle
 C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\board/clock_config.h:
 C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\CMSIS/MKL25Z4.h:
 C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\utilities/fsl_debug_console.h:
-../source/touch.h:
 ../source/led.h:
-../source/sysclock.h:
 ../source/uart.h:
 ../source/cbfifo.h:
 ../source/i2c.h:

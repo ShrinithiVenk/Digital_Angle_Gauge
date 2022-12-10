@@ -12,12 +12,10 @@ C_SRCS += \
 ../source/led.c \
 ../source/mtb.c \
 ../source/semihost_hardfault.c \
-../source/sysclock.c \
 ../source/systick.c \
 ../source/test_accel.c \
 ../source/test_cbfifo.c \
 ../source/test_led.c \
-../source/touch.c \
 ../source/uart.c 
 
 C_DEPS += \
@@ -29,12 +27,10 @@ C_DEPS += \
 ./source/led.d \
 ./source/mtb.d \
 ./source/semihost_hardfault.d \
-./source/sysclock.d \
 ./source/systick.d \
 ./source/test_accel.d \
 ./source/test_cbfifo.d \
 ./source/test_led.d \
-./source/touch.d \
 ./source/uart.d 
 
 OBJS += \
@@ -46,12 +42,10 @@ OBJS += \
 ./source/led.o \
 ./source/mtb.o \
 ./source/semihost_hardfault.o \
-./source/sysclock.o \
 ./source/systick.o \
 ./source/test_accel.o \
 ./source/test_cbfifo.o \
 ./source/test_led.o \
-./source/touch.o \
 ./source/uart.o 
 
 
@@ -67,7 +61,7 @@ source/%.o: ../source/%.c source/subdir.mk
 clean: clean-source
 
 clean-source:
-	-$(RM) ./source/DigitalAngleGauge.d ./source/DigitalAngleGauge.o ./source/accel.d ./source/accel.o ./source/cbfifo.d ./source/cbfifo.o ./source/cmd.d ./source/cmd.o ./source/i2c.d ./source/i2c.o ./source/led.d ./source/led.o ./source/mtb.d ./source/mtb.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/sysclock.d ./source/sysclock.o ./source/systick.d ./source/systick.o ./source/test_accel.d ./source/test_accel.o ./source/test_cbfifo.d ./source/test_cbfifo.o ./source/test_led.d ./source/test_led.o ./source/touch.d ./source/touch.o ./source/uart.d ./source/uart.o
+	-$(RM) ./source/DigitalAngleGauge.d ./source/DigitalAngleGauge.o ./source/accel.d ./source/accel.o ./source/cbfifo.d ./source/cbfifo.o ./source/cmd.d ./source/cmd.o ./source/i2c.d ./source/i2c.o ./source/led.d ./source/led.o ./source/mtb.d ./source/mtb.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/systick.d ./source/systick.o ./source/test_accel.d ./source/test_accel.o ./source/test_cbfifo.d ./source/test_cbfifo.o ./source/test_led.d ./source/test_led.o ./source/uart.d ./source/uart.o
 
 .PHONY: clean-source
 

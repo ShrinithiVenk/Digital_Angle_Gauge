@@ -10,7 +10,13 @@
 #include "i2c.h"
 #include "accel.h"
 
-
+/*
+ * @brief			:	test suite for RGB LED
+ *
+ * @parameters		:	none
+ *
+ * @returns			:	none
+ */
 void test_tpm_led()
 {
 	printf("%s: Testing RGB LED by changing PWM duty cycle\n\r", __FUNCTION__);

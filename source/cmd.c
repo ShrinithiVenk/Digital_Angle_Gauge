@@ -1,21 +1,21 @@
 
-/* 	LIBRARY FILES	*/
+/****************************************** 	LIBRARY FILES	*******************************/
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
 #include <math.h>
 
-/* 	OTHER FILES TO BE INCLUDED	*/
+/****************************************** 	HEADER FILES TO BE INCLUDED	********************/
 #include "cmd.h"
 #include "led.h"
 #include "accel.h"
 #include "systick.h"
 
-/*	GENERIC PROTOTYPE FOR HANDLE FUNCTIONS	*/
+
 typedef void (*cmd_handler_t)(int, char * argv[]);
 
-/*		STRUCTURE OF COMMANDS AND THEIR DATA	*/
+/*******************************************    STRUCTURE 	**************************************/
 typedef struct{
 	const char *cmd_name;
 	cmd_handler_t handler;
@@ -34,24 +34,26 @@ enum commands {
 };
 
 
-
-/*	TABLE OF COMMANDS EXECUTED IN RESPONSE TO THE USER INPUT 	*/
 static cmd_table_t commands[] =
 {
-		{"author",Handle_Author, GREEN},
+		{"author",Handle_Author},
 
-		{"help",Handle_Help},
-
-
-		{"angle", Handle_Angle, RED},
-
+		{"angle", Handle_Angle, GREEN},
 
 		{"calibrate", Handle_Calibrate, GREEN},
+
+		{"help",Handle_Help},
 };
 
 static const int no_of_command = sizeof(commands) / sizeof(cmd_table_t);	//computing number of commands
 
-
+/*
+ * @brief:	pre process command for the provided user input
+ *
+ * @parameters: argc, argv
+ *
+ * @returns: null
+ */
 void pre_process_command(void)
 {
 	uint8_t c=0;
@@ -65,7 +67,6 @@ void pre_process_command(void)
 		{
 			if(bp==0)
 			{
-				//do nothing if bp=0
 				//ignore any more backspaces at this moment
 			}
 			else
@@ -80,7 +81,6 @@ void pre_process_command(void)
 			buffer[bp] = c;
 			bp++;
 			printf("%c",(char)c);
-			//printf("%d",(int)c);
 		}
 	}
 	buffer[bp] = '\0';
@@ -91,7 +91,14 @@ void pre_process_command(void)
 	c = 0;
 }
 
-
+/*
+ * @brief:	process command for the provided user input
+ *
+ * @parameters:
+ *   input	  Input string provided by user
+ *
+ * @returns: null
+ */
 void process_command(char *input)
 {
 	bool in_token = false;
@@ -100,7 +107,6 @@ void process_command(char *input)
 
 	bool command = false;						//variable to check whether a command
 												//is present or not
-
 	char *p = input;
 	char *end;
 
@@ -114,11 +120,6 @@ void process_command(char *input)
 		{
 			case false:
 
-				/*
-				 * @brief: if the token state is false, we check for a valid character
-				 * 			if we find a valid character, we look for first available white space,
-				 * 			LF, CR or TAB.
-				 */
 				if(
 						((*p>='a')&&(*p<='z')) ||
 						((*p>='A')&&(*p<='Z')) ||
@@ -133,10 +134,6 @@ void process_command(char *input)
 			break;
 			case true:
 
-				/*
-				 * @brief: in this state, we check for the first available white space,
-				 * 			LF, CR, TAB, and then replace the character with null character.
-				 */
 				if(
 						(*p == ' ')  ||
 						(*p == '\t') ||
@@ -173,12 +170,33 @@ void process_command(char *input)
 	 }
 }
 
+
+/*
+ * @brief	:	this function is called after the author
+ * 				command is received
+ *
+ * @param   :	argc, argv
+ *
+ * @returns :	null
+ *
+ *
+ */
  void Handle_Author(int argc, char * argv[])
 {
 	printf("Shrinithi Venkatesan\r\n");
 	LED_ON(commands[command_author].led_color, brightness);
 }
 
+ /*
+  * @brief	:	this function is called after the help
+  * 				command is received
+  *
+  *
+  * @param   :	argc, argv
+  *
+  *
+  * @returns :	null
+  */
  void Handle_Help(int argc,char * argv[])
 {
 	LED_ON(commands[command_help].led_color, brightness);
@@ -193,7 +211,15 @@ void process_command(char *input)
 }
 
 
-
+ /*
+  * @brief	:	this function is called after the angle
+  * 				command is received
+  *
+  * @param   :	argc, argv
+  *
+  *
+  * @returns:	null
+  */
  void Handle_Angle(int argc, char * argv[])
 {
 	uint32_t user_angle;		//a variable to store the value entered by user
@@ -237,7 +263,15 @@ void process_command(char *input)
 	}
 }
 
-
+ /*
+  * @brief	:	this function is called after the calibrate
+  * 				command is received
+  *
+  * @param   :	argc, argv
+  *
+  *
+  * @returns	:	null
+  */
 
  void Handle_Calibrate(int argc, char * argv[])
 {

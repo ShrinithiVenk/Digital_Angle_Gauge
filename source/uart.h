@@ -1,19 +1,17 @@
-
-
 #ifndef _UART_H_
 #define _UART_H_
 
-/*	LIBRARY FILES	*/
+/*****************************************	LIBRARY FILES	************************************************/
 #include <stdint.h>
 
-/*	OTHER FILES TO BE INCLUDED	*/
+/***************************************	HEADER FILES TO BE INCLUDED	************************************/
 #include "cbfifo.h"
 
-/*	MACROS	*/
+/***************************************	MACROS	********************************************************/
 #define UART_OVERSAMPLE_RATE 	16
 #define SYS_CLOCK				24e6
 
-/*	FUNCTION PROTOTYPES	*/
+/***************************************	FUNCTION PROTOTYPES	*******************************************/
 
 /*
  * @brief: 	initializes UART0
@@ -26,4 +24,4 @@
 void Init_UART0(uint32_t baud_rate);
 
 
-#endif /* _UART_H_ */
+#endif

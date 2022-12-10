@@ -1,5 +1,6 @@
 C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\CMSIS/core_cm0plus.h:804:22:NVIC_SetPriority	24	static
-../source/systick.c:26:6:Init_SysTick	8	static
-../source/systick.c:34:6:SysTick_Handler	8	static
-../source/systick.c:40:13:reset_timer	8	static
-../source/systick.c:46:6:delay	16	static
+../source/systick.c:34:6:Init_SysTick	8	static
+../source/systick.c:49:6:sysclock_init	8	static
+../source/systick.c:70:6:SysTick_Handler	8	static
+../source/systick.c:83:6:reset_timer	8	static
+../source/systick.c:96:6:delay	16	static

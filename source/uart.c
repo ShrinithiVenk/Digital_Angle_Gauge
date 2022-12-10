@@ -1,9 +1,9 @@
 
 
-/*	LIBRARY FILES	*/
+/********************************	LIBRARY FILES	**************************************/
 #include <MKL25Z4.h>
 
-/*	OTHER FILES TO BE INCLUDED	*/
+/********************************	HEADER FILES TO BE INCLUDED	****************************/
 #include "uart.h"
 
 /*
@@ -46,7 +46,7 @@ void Init_UART0(uint32_t baud_rate)
 
 	// Don't enable loopback mode, use 8 data bit mode, don't use parity
 	UART0->C1 = UART0_C1_LOOPS(0) | UART0_C1_M(0) | UART0_C1_PE(0);
-	// Don't invert transmit data, don't enable interrupts for errors
+	// Don't invert TRANS data, don't enable interrupts for errors
 	UART0->C3 = UART0_C3_TXINV(0) | UART0_C3_ORIE(0)| UART0_C3_NEIE(0)
 			| UART0_C3_FEIE(0) | UART0_C3_PEIE(0);
 
@@ -62,7 +62,7 @@ void Init_UART0(uint32_t baud_rate)
 	NVIC_ClearPendingIRQ(UART0_IRQn);
 	NVIC_EnableIRQ(UART0_IRQn);
 
-	// Enable receive interrupts but not transmit interrupts yet
+	// Enable receive interrupts but not TRANS interrupts yet
 	UART0->C2 |= UART_C2_RIE(1);
 	//UART0->C2 |= UART_C2_TIE(1);//enable for test-dont do this here
 
@@ -96,18 +96,17 @@ void UART0_IRQHandler(void)
 	if (UART0->S1 & UART0_S1_RDRF_MASK) {
 		ch = UART0->D;
 
-		if(!(cbfifo_capacity(RECEIVE) == cbfifo_length(RECEIVE))){
-			cbfifo_enqueue(RECEIVE,&ch,1);
+		if(!(cbfifo_capacity(REC) == cbfifo_length(REC))){
+			cbfifo_enqueue(REC,&ch,1);
 		}else {
-			// error - queue full.
-			// discard character
+
 		}
 
 	}
 	if ( (UART0->C2 & UART0_C2_TIE_MASK) && (UART0->S1 & UART0_S1_TDRE_MASK) ) { // tx buffer empty
 		// can send another character
-		if(cbfifo_length(TRANSMIT)!=0){//not empty
-			 cbfifo_dequeue(TRANSMIT, &ch_tx, 1);
+		if(cbfifo_length(TRANS)!=0){//not empty
+			 cbfifo_dequeue(TRANS, &ch_tx, 1);
 			 UART0->D = ch_tx;
 		}else
 			UART0->C2 &= ~UART0_C2_TIE_MASK;
@@ -123,11 +122,11 @@ void UART0_IRQHandler(void)
 int __sys_write(int handle, char * buf, int size)
 {
 
-	while(cbfifo_length(TRANSMIT) == cbfifo_capacity(TRANSMIT))
+	while(cbfifo_length(TRANS) == cbfifo_capacity(TRANS))
 		;
 
 	while (size > 0) {
-	  size_t bytes_written = cbfifo_enqueue(TRANSMIT, buf, size);
+	  size_t bytes_written = cbfifo_enqueue(TRANS, buf, size);
 	  size -= bytes_written;
 	  buf += bytes_written;
 	}
@@ -136,7 +135,7 @@ int __sys_write(int handle, char * buf, int size)
 		UART0->C2 |= UART0_C2_TIE(1);
 	}
 
-	return 0;//success
+	return 0;
 }
 
 /*
@@ -151,10 +150,10 @@ int __sys_readc(void)
 
 	int character;
 
-	while(cbfifo_length(RECEIVE)==0)
+	while(cbfifo_length(REC)==0)
 			;
 
-	if(cbfifo_dequeue(RECEIVE,&character,1))
+	if(cbfifo_dequeue(REC,&character,1))
 		{
 			return character;
 		}
@@ -163,5 +162,6 @@ int __sys_readc(void)
 			return -1;
 		}
 }
+
 
 

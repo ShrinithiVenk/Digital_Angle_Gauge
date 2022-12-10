@@ -1,4 +1,5 @@
-
+#ifndef _I2C_H_
+#define _I2C_H_
 
 /*****************************	LIBRARY FILES	********************************/
 #include <stdint.h>
@@ -80,4 +81,4 @@ uint8_t Read_I2C(uint8_t dev, uint8_t address);
 
 void Write_I2C(uint8_t dev, uint8_t address, uint8_t data);
 
-
+#endif

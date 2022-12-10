@@ -1,5 +1,3 @@
-
-
 #ifndef _CBFIFO_H_
 #define _CBFIFO_H_
 
@@ -10,8 +8,8 @@
 
 
 enum {
-	TRANSMIT	= 0,
-	RECEIVE		= 1
+	TRANS	= 0,
+	REC		= 1
 };
 
 /**************************************	FUNCTIONS	***********************************/
@@ -85,4 +83,4 @@ size_t cbfifo_capacity(int buf_type);
 
 void cbfifo_reset(int buf_type);
 
-#endif /* _CBFIFO_H_ */
+#endif

@@ -214,4 +214,4 @@ void test_LED_ON(uint32_t red_value, uint32_t green_value, uint32_t blue_value)
 		TPM0->CONTROLS[1].CnV = blue_value;
 }
 
-/*EOF*/
+

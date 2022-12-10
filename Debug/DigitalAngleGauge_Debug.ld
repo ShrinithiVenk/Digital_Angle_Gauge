@@ -6,7 +6,7 @@
  * Generated linker script file for MKL25Z128xxx4
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13] on 10-Dec-2022, 3:59:25 AM
+ * MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13] on 10-Dec-2022, 4:26:10 PM
  */
 
 INCLUDE "DigitalAngleGauge_Debug_library.ld"

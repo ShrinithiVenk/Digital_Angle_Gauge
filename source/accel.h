@@ -1,6 +1,5 @@
-
-#ifndef _ACCELEROMETER_H_
-#define _ACCELEROMETER_H_
+#ifndef _ACCEL_H_
+#define _ACCEL_H_
 
 /*************************************	LIBRARY FILES   ***************************/
 #include <stdint.h>
@@ -68,4 +67,4 @@ void measure_axes(void);
 
 void convert_axes_to_tilt(void);
 
-#endif /*_ACCELEROMETER_H_*/
+#endif

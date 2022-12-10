@@ -53,9 +53,8 @@
 
 
 /* TODO: insert other include files here. */
-#include "touch.h"
+
 #include "led.h"
-#include "sysclock.h"
 #include "uart.h"
 #include "i2c.h"
 #include "systick.h"
@@ -81,7 +80,6 @@ int main(void)
     BOARD_InitDebugConsole();
 #endif
 
-    Touch_Init();
        LED_init();
        LED_Color_Config();
        Init_SysTick();

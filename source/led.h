@@ -1,12 +1,10 @@
-
-
 #ifndef _LED_H_
 #define _LED_H_
 
-/*	LIBRARY FILES	*/
+/***********************************	LIBRARY FILES	******************************/
 #include "MKL25Z4.h"
 
-/*	MACROS	*/
+/************************************	MACROS	**************************************/
 #define RED_LED_PIN 		18
 #define GREEN_LED_PIN 		19
 #define BLUE_LED_PIN 		1
@@ -19,7 +17,7 @@ typedef struct color_configuration
 	uint16_t blue_value;
 }color_config;
 
-/*	ENUM OF COLORS	*/
+
 enum color_names
 {
 	RED,			//0xFF0000
@@ -27,6 +25,10 @@ enum color_names
 	BLUE,			//0x0000FF
 	TOTAL_COLORS
 };
+
+/********************************	GLOBAL VARIABLES	*********************/
+extern color_config color[TOTAL_COLORS];
+extern int brightness;
 
 /*
  * @brief: 					Initializes the Blue LED to function in Timer and
@@ -57,12 +59,6 @@ void Init_Blue_LED_PWM();
  * @returns: 				None.
  */
 void Init_Green_LED_PWM();
-/*	STRUCTURES TO HOLD RGB VALUES OF COLORS FOR CONFIGURATION	*/
-
-
-/*	GLOBAL VARIABLES	*/
-extern color_config color[TOTAL_COLORS];
-extern int brightness;
 
 /*********************************	FUNCTIONS	***************************/
 /*
@@ -115,4 +111,4 @@ void LED_ON(uint32_t color_name, int factor);
  */
 void test_LED_ON(uint32_t red_value, uint32_t green_value, uint32_t blue_value);
 
-#endif /*_LED_H_*/
+#endif

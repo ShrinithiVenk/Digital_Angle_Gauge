@@ -1,27 +1,30 @@
+#ifndef _CMD_H_
+#define _CMD_H_
 
-#ifndef _COMMAND_PROCESS_H_
-#define _COMMAND_PROCESS_H_
+/*********************************	FUNCTION	*****************************************/
 
-/*	FUNCTION PROTOTYPES	*/
-/*
- * @brief:	process command for the provided user input
- *
- * @parameters:
- *   input	  Input string provided by user
- *
- * @returns: none
- */
-/*	HANDLER FUNCTION PROTOTYPES	*/
 
 /*
  * @brief	:	this function is called after the author
  * 				command is received
+ *
+ * @param   :	argc, argv
+ *
+ * @returns :	null
+ *
+ *
  */
  void Handle_Author		(int argc, char * argv[]);
 
 /*
  * @brief	:	this function is called after the help
  * 				command is received
+ *
+ *
+ * @param   :	argc, argv
+ *
+ *
+ * @returns :	null
  */
  void Handle_Help		(int argc, char * argv[]);
 
@@ -29,16 +32,42 @@
 /*
  * @brief	:	this function is called after the angle
  * 				command is received
+ *
+ * @param   :	argc, argv
+ *
+ *
+ * @returns:	null
  */
  void Handle_Angle		(int argc, char * argv[]);
 
 /*
  * @brief	:	this function is called after the calibrate
  * 				command is received
+ *
+ * @param   :	argc, argv
+ *
+ *
+ * @returns	:	null
  */
  void Handle_Calibrate	(int argc, char * argv[]);
- void touch_handler(int argc, char * argv[]);
+
+ /*
+  * @brief:	pre processess command for the provided user input
+  *
+  * @parameters: argc, argv
+  *
+  * @returns: null
+  */
 void pre_process_command(void);
+
+/*
+ * @brief:	process command for the provided user input
+ *
+ * @parameters:
+ *   input	  Input string provided by user
+ *
+ * @returns: null
+ */
 void process_command(char *input);
 
-#endif /* _COMMAND_PROCESS_H_ */
+#endif
