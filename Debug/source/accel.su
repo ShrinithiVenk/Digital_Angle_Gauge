@@ -1,0 +1,3 @@
+../source/accel.c:26:5:init_accelerometer	8	static
+../source/accel.c:41:6:measure_axes	32	static
+../source/accel.c:87:6:convert_axes_to_tilt	40	static

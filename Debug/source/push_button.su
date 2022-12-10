@@ -1,0 +1,5 @@
+C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\CMSIS/core_cm0plus.h:745:22:NVIC_EnableIRQ	16	static
+C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\CMSIS/core_cm0plus.h:791:22:NVIC_ClearPendingIRQ	16	static
+C:\Users\itssh\Documents\MCUXpressoIDE_11.6.0_8187\workspace\PBKDF2\DigitalAngleGauge\CMSIS/core_cm0plus.h:804:22:NVIC_SetPriority	24	static
+../source/push_button.c:31:6:init_switch	8	static
+../source/push_button.c:63:6:init_switch_interrupt	8	static

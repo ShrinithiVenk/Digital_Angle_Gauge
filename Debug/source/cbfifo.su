@@ -1,0 +1,5 @@
+../source/cbfifo.c:38:8:cbfifo_capacity	16	static
+../source/cbfifo.c:52:8:cbfifo_length	16	static
+../source/cbfifo.c:71:8:cbfifo_enqueue	48	static
+../source/cbfifo.c:125:8:cbfifo_dequeue	40	static
+../source/cbfifo.c:174:6:cbfifo_reset	24	static

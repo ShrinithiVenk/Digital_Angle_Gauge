@@ -1,0 +1,6 @@
+../source/cmd.c:55:6:pre_process_command	104	static
+../source/cmd.c:95:6:process_command	88	static
+../source/cmd.c:176:7:Handle_Author	16	static
+../source/cmd.c:182:7:Handle_Help	16	static
+../source/cmd.c:197:7:Handle_Angle	32	static
+../source/cmd.c:242:7:Handle_Calibrate	24	static

@@ -1,0 +1,5 @@
+../source/test.c:29:6:test_cbfifo	1072	static
+../source/test.c:401:6:test_tpm_led	40	static
+../source/test.c:456:6:self_test_accelerometer	152	static
+../source/test.c:498:13:self_test_accelerometer_mode	16	static
+../source/test.c:521:6:test_accelerometer	8	static
