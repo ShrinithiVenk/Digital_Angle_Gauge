@@ -52,7 +52,10 @@ Through the UI terminal , the user will provide the angle needed to be measured 
            FRDM KL25Z
            MMA8451Q Accelerometer
            LED
-  
+
+# vedio demo link
+
+ https://photos.app.goo.gl/1DPU6Mwrp7s5CKxu5
   
 
 
