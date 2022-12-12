@@ -12,9 +12,9 @@
 
 typedef struct color_configuration
 {
-	uint16_t red_value;
-	uint16_t green_value;
-	uint16_t blue_value;
+	uint16_t red;
+	uint16_t green;
+	uint16_t blue;
 }color_config;
 
 
@@ -30,6 +30,7 @@ enum color_names
 extern color_config color[TOTAL_COLORS];
 extern int brightness;
 
+/*********************************	FUNCTIONS	******************************/
 /*
  * @brief: 					Initializes the Blue LED to function in Timer and
  * 							PWM mode.

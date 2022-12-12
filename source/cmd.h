@@ -70,4 +70,14 @@ void pre_process_command(void);
  */
 void process_command(char *input);
 
+/*
+ * @brief	:	Resets the angle back to 0
+ *
+ * @param   :	null
+ *
+ *
+ * @returns	:	null
+ */
+void Handle_Reset();
+
 #endif

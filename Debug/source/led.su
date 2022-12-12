@@ -4,5 +4,5 @@
 ../source/led.c:102:7:Init_Green_LED_PWM	8	static
 ../source/led.c:133:6:LED_init	8	static
 ../source/led.c:150:6:LED_ON	32	static
-../source/led.c:194:6:LED_OFF	8	static
-../source/led.c:210:6:test_LED_ON	24	static
+../source/led.c:193:6:LED_OFF	8	static
+../source/led.c:209:6:test_LED_ON	24	static

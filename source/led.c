@@ -13,17 +13,17 @@ int brightness = 100;
  */
 void LED_Color_Config()
 {
-	color[RED].red_value 			= 0xFF;
-	color[RED].green_value 			= 0x00;
-	color[RED].blue_value 			= 0x00;
+	color[RED].red 			= 0xFF;
+	color[RED].green		= 0x00;
+	color[RED].blue 		= 0x00;
 
-	color[GREEN].red_value 			= 0x00;
-	color[GREEN].green_value 		= 0xFF;
-	color[GREEN].blue_value 		= 0x00;
+	color[GREEN].red		= 0x00;
+	color[GREEN].green 		= 0xFF;
+	color[GREEN].blue 		= 0x00;
 
-	color[BLUE].red_value 			= 0x00;
-	color[BLUE].green_value 		= 0x00;
-	color[BLUE].blue_value 			= 0xFF;
+	color[BLUE].red			= 0x00;
+	color[BLUE].green 		= 0x00;
+	color[BLUE].blue		= 0xFF;
 
 }
 
@@ -149,39 +149,38 @@ void LED_init()
  */
 void LED_ON(uint32_t color_name, int factor)
 {
-	uint32_t red_value, green_value, blue_value;
+	uint32_t red, green, blue;
 
-	if (color[color_name].red_value == 0)
+	if (color[color_name].red == 0)
 	{
-		red_value = 0;
+		red= 0;
 	}
 	else
 	{
-		red_value = (factor*color[color_name].red_value)/100;
+		red = (factor*color[color_name].red)/100;
 	}
 
-	if (color[color_name].green_value == 0)
+	if (color[color_name].green == 0)
 	{
-		green_value = 0;
+		green = 0;
 	}
 	else
 	{
-		green_value = (factor*color[color_name].green_value)/100;
+		green = (factor*color[color_name].green)/100;
 	}
 
-	if (color[color_name].blue_value == 0)
+	if (color[color_name].blue == 0)
 	{
-		blue_value = 0;
+		blue= 0;
 	}
 	else
 	{
-		blue_value = (factor*color[color_name].blue_value)/100;
+		blue = (factor*color[color_name].blue)/100;
 	}
 
-	//printf("r: %d g: %d, b: %d\n\r", red_value, green_value, blue_value);
-		TPM2->CONTROLS[0].CnV = red_value;
-		TPM2->CONTROLS[1].CnV = green_value;
-		TPM0->CONTROLS[1].CnV = blue_value;
+		TPM2->CONTROLS[0].CnV = red;
+		TPM2->CONTROLS[1].CnV = green;
+		TPM0->CONTROLS[1].CnV = blue;
 }
 
 /*
@@ -207,11 +206,11 @@ void LED_OFF(void)
  *
  * @returns: 	none
  */
-void test_LED_ON(uint32_t red_value, uint32_t green_value, uint32_t blue_value)
+void test_LED_ON(uint32_t red, uint32_t green, uint32_t blue)
 {
-		TPM2->CONTROLS[0].CnV = red_value;
-		TPM2->CONTROLS[1].CnV = green_value;
-		TPM0->CONTROLS[1].CnV = blue_value;
+		TPM2->CONTROLS[0].CnV = red;
+		TPM2->CONTROLS[1].CnV = green;
+		TPM0->CONTROLS[1].CnV = blue;
 }
 
 

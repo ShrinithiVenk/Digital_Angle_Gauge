@@ -98,7 +98,7 @@ int main(void)
      self_test_accelerometer();
 
     printf("Welcome to Digital Angle Gauge!\r\n");
-    printf("Ready for calibration..\r\n");
+    LED_ON(RED, brightness);
     printf("\n\rType 'help' for more information on how to proceed\n\r");
     printf("? ");
 

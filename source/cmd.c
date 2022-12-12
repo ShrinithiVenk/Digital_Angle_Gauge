@@ -19,30 +19,23 @@ typedef void (*cmd_handler_t)(int, char * argv[]);
 typedef struct{
 	const char *cmd_name;
 	cmd_handler_t handler;
-	uint32_t led_color;
 }cmd_table_t;
 
 int desired_angle = 45;
 int calibrated_angle = 0;
-
-enum commands {
-	command_author,
-	command_help,
-	command_brightness,
-	command_angle,
-	command_calibrate
-};
 
 
 static cmd_table_t commands[] =
 {
 		{"author",Handle_Author},
 
-		{"angle", Handle_Angle, GREEN},
+		{"angle", Handle_Angle},
 
-		{"calibrate", Handle_Calibrate, GREEN},
+		{"calibrate", Handle_Calibrate},
 
 		{"help",Handle_Help},
+
+		{"reset", Handle_Reset},
 };
 
 static const int no_of_command = sizeof(commands) / sizeof(cmd_table_t);	//computing number of commands
@@ -63,7 +56,7 @@ void pre_process_command(void)
 	while((c != '\r' ) && (c != '\n'))
 	{
 		c = getchar();
-		if(c == '\b')		//check for backspace
+		if(c == '\b')	//check for backspace
 		{
 			if(bp==0)
 			{
@@ -184,7 +177,7 @@ void process_command(char *input)
  void Handle_Author(int argc, char * argv[])
 {
 	printf("Shrinithi Venkatesan\r\n");
-	LED_ON(commands[command_author].led_color, brightness);
+	LED_ON(BLUE, brightness);
 }
 
  /*
@@ -199,15 +192,27 @@ void process_command(char *input)
   */
  void Handle_Help(int argc,char * argv[])
 {
-	LED_ON(commands[command_help].led_color, brightness);
+	LED_ON(BLUE, brightness);
 
-	printf("1. author          |   Prints the name of the Author\r\n");
+	printf("\n****************************************************************\r\n");
 
-	printf("2. angle<angle>    |   Allows user to set a desired angle and \n\r LED glows alters to maximum brightness once the angle reaches\r\n");
+	printf("\n\r1. Author\n\r");
+	printf("Prints the name of the Author\r\n");
 
-	printf("3. calibrate<angle>|   Calibrates the accelerometer to a certain value.\n\r For ex, if	we calibrate the accelerometer at 90 degrees, then 90 degrees become a reference axis (0 degrees) for the accelerometer and all the readings will be taken relative to 90.\r\n");
+	printf("\n\r2. Angle<angle>\n\r");
+	printf("Measures your desired angle\r\n");
 
-	printf("4. help            |   Reprint this help message again\r\n");
+	printf("\n\r3. Calibrate<angle>\n\r");
+	printf("Prints the name of the Author\r\n");
+
+	printf("\n\r4. Help\n\r");
+	printf("Reprint this help message again\r\n");
+
+	printf("\n\r5. Reset\n\r");
+	printf("Resets the angle 0 \r\n");
+
+
+	printf("\n******************************************************************\r\n");
 }
 
 
@@ -249,14 +254,14 @@ void process_command(char *input)
 		    //print angle for user
 		   	printf("Angle: %d\n\r", angle);
 		   	//LED will be blinking unless the desired angle is reached
-		   	LED_ON(commands[command_angle].led_color, brightness);
+		   	LED_ON(RED, brightness);
 		   	delay(50);
 		   	LED_OFF();
 		   	delay(50);
 		   	if (angle == desired_angle)
 		   	{
-		   		printf("Desired angle reached. Current Angle: %d\n\r", angle);
-		   		LED_ON(commands[command_angle].led_color, brightness);
+		   		printf("Desired angle reached at %d\n\r", angle);
+		   		LED_ON(GREEN, brightness);
 		   		break;
 		   	}
 		}
@@ -289,7 +294,20 @@ void process_command(char *input)
 		sscanf(argv[1], "%d", &angle);
 		calibrated_angle = angle;
 	}
-	LED_ON(commands[command_calibrate].led_color, brightness);
+	LED_ON(GREEN, brightness);
 }
 
-
+ /*
+  * @brief	:	Resets the angle back to 0
+  *
+  * @param   :	null
+  *
+  *
+  * @returns	:	null
+  */
+void Handle_Reset()
+{
+	int angle = 0;
+	calibrated_angle = angle;
+	LED_ON(GREEN, brightness);
+}
